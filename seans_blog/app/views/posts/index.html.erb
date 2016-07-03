@@ -1,23 +1,15 @@
 <p id="notice"><%= notice %></p>
 <h1 class='text-center'>Blog Posts</h1>
 <%= link_to 'New Post', new_post_path %>
-
-<% @posts.each do |post| %>
-  <!-- <div class="col-md-3">first</div> -->
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= post.title %></h3>
-      </div>
-      <div class="panel-body">
-        <%= post.body %>
-        <br>
-        <br>
-        <p><%= link_to 'Show', post %> |
-        <%= link_to 'Edit', edit_post_path(post) %> |
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="col-md-3">second</div> -->
-<%end%>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+  <% @posts.each do |post| %>
+    <h1 class="text-center"><%= post.title %></h1>
+    <p class="date">Posted:  <%= post.created_at.strftime("%B, %d, %Y") %> </p>
+    <p><%= post.body[0..250] %>...</p>
+    <!-- <p class='text-right'><%= link_to 'Show', post %> |
+    <%= link_to 'Edit', edit_post_path(post) %> |
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
+  <%end%>
+</div>
+<div class="col-md-3"></div>
